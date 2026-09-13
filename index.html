@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRO BALANCE • The Art of Daily Nutrition</title>
+  
+  <!-- Premium Editorial Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Telegram Web App SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="editorial-theme">
+
+  <!-- Header: Quiet Luxury Navigation -->
+  <header class="luxury-header">
+    <div class="header-inner">
+      <div class="brand-block">
+        <span class="brand-monogram">PB</span>
+        <div class="brand-titles">
+          <span class="brand-name">PRO BALANCE</span>
+          <span class="brand-tag">NUTRITION & WELLNESS SPACE</span>
+        </div>
+      </div>
+
+      <nav class="scene-curator">
+        <span class="curator-label">СЦЕНИ ДНЯ:</span>
+        <button class="scene-tab active" data-scene="morning">
+          <span class="tab-index">01</span> Ранковий баланс
+        </button>
+        <button class="scene-tab" data-scene="day">
+          <span class="tab-index">02</span> Денний тонус
+        </button>
+        <button class="scene-tab" data-scene="night">
+          <span class="tab-index">03</span> Нічне відновлення
+        </button>
+      </nav>
+
+      <div class="header-tools">
+        <button id="soundToggle" class="tool-btn" title="Акустичний супровід">
+          <span class="tool-dot"></span>
+          <span class="tool-label">SOUND: ON</span>
+        </button>
+        <button id="bookConsultBtn" class="primary-pill-btn">
+          Консультація куратора
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero Stage -->
+  <main class="editorial-main">
+    <div class="editorial-container">
+      
+      <!-- Top Editorial Headline -->
+      <div class="editorial-header-text">
+        <div class="sub-heading-row">
+          <span class="num-prefix">№ 01</span>
+          <span class="divider-line"></span>
+          <span class="category-title">DAILY NUTRITION PROTOCOL</span>
+          <span class="divider-line"></span>
+          <span class="status-indicator">● LIVE INTERACTIVE SCENE</span>
+        </div>
+        <h1 class="main-editorial-title">
+          Збалансований сніданок як <em>щоденний ритуал</em>
+        </h1>
+        <p class="editorial-lead">
+          Торкайтеся інтерактивних маркерів на сцені, щоб відкрити ботанічний склад, нутрієнтний профіль та замовити авторський раціон.
+        </p>
+      </div>
+
+      <!-- INTERACTIVE STAGE: Editorial Frame -->
+      <div class="stage-frame">
+        <div class="stage-inner" id="stageContainer">
+          
+          <!-- Hero Photograph -->
+          <img 
+            src="images/hero-scene.jpg" 
+            alt="Ранковий ритуал харчування з коктейлем Формула 1" 
+            class="stage-image"
+          />
+
+          <!-- Subtle Atmospheric Lighting Overlay -->
+          <div class="stage-vignette"></div>
+
+          <!-- ============================================== -->
+          <!-- MINIMALIST HOTSPOT 1: The Cocktail Shake       -->
+          <!-- ============================================== -->
+          <div class="quiet-hotspot hotspot-cocktail" id="spotShake" data-target="modalShake">
+            <!-- Minimal Expanding Ring -->
+            <div class="quiet-pulse-ring"></div>
+            
+            <!-- Sleek Interactive Dot Trigger -->
+            <button class="quiet-dot-trigger" aria-label="Відкрити картку коктейлю">
+              <span class="dot-core"></span>
+            </button>
+
+            <!-- Refined Glass Label Tag -->
+            <div class="quiet-label-tag">
+              <span class="tag-index">01</span>
+              <span class="tag-separator">/</span>
+              <span class="tag-name">Формула 1 • Ваніль</span>
+              <span class="tag-arrow">→</span>
+            </div>
+
+            <!-- Sleek Minimalist Hover Spec Card -->
+            <div class="quiet-preview-box">
+              <div class="spec-col-img">
+                <img src="images/product-shake.webp" alt="Баночка" class="spec-mini-can">
+              </div>
+              <div class="spec-col-details">
+                <span class="spec-mono-label">HERBALIFE NUTRITION</span>
+                <span class="spec-title">Збалансований коктейль</span>
+                <div class="spec-metrics">
+                  <span>25 вітамінів</span> • <span>20г білка</span> • <span>200 ккал</span>
+                </div>
+                <span class="spec-action">Натисніть для специфікації →</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- MINIMALIST HOTSPOT 2: Aloe Drink (Water)       -->
+          <!-- ============================================== -->
+          <div class="quiet-hotspot hotspot-aloe" id="spotAloe" data-target="modalAloe">
+            <div class="quiet-pulse-ring subtle"></div>
+            <button class="quiet-dot-trigger" aria-label="Рослинний напій Алое">
+              <span class="dot-core"></span>
+            </button>
+            <div class="quiet-label-tag">
+              <span class="tag-index">02</span>
+              <span class="tag-separator">/</span>
+              <span class="tag-name">Рослинний Алое</span>
+            </div>
+          </div>
+
+          <!-- ============================================== -->
+          <!-- MINIMALIST HOTSPOT 3: Diet & Bowl              -->
+          <!-- ============================================== -->
+          <div class="quiet-hotspot hotspot-diet" id="spotDiet" data-target="modalDiet">
+            <div class="quiet-pulse-ring subtle"></div>
+            <button class="quiet-dot-trigger" aria-label="Раціон та клітковина">
+              <span class="dot-core"></span>
+            </button>
+            <div class="quiet-label-tag">
+              <span class="tag-index">03</span>
+              <span class="tag-separator">/</span>
+              <span class="tag-name">Клітковина та Раціон</span>
+            </div>
+          </div>
+
+          <!-- Bottom Stage Meta Strip -->
+          <div class="stage-footer-meta">
+            <div class="meta-left">
+              <span class="meta-dot"></span>
+              <span class="meta-text">Інтерактивна навігація по продуктах</span>
+            </div>
+            <div class="meta-right">
+              <span>PHOTO: PRO BALANCE ARCHIVE</span>
+              <span>•</span>
+              <span>SCENE ID: #0821-M</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Stage Bottom Curation Bar -->
+        <div class="stage-curation-bar">
+          <div class="curation-item" id="quickOpenShake">
+            <span class="curation-num">01</span>
+            <div class="curation-text">
+              <strong>Формула 1 «Ванільний крем»</strong>
+              <span>Базовий білковий фундамент дня</span>
+            </div>
+            <span class="curation-btn">Відкрити специфікацію ↗</span>
+          </div>
+
+          <div class="curation-divider"></div>
+
+          <div class="curation-actions">
+            <button class="btn-clean-ghost" id="pulseControlBtn">
+              Вимкнути маркери
+            </button>
+            <button class="btn-clean-dark" id="btnQuickOrder">
+              Замовити 3-денний тест
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand Philosophy / Editorial Grid -->
+      <section class="editorial-manifesto">
+        <div class="manifesto-col">
+          <span class="col-num">I.</span>
+          <h3>Біодоступність та чистота</h3>
+          <p>
+            Високоочищений соєвий ізолят та комплекс із 25 есенціальних мікронутрієнтів розроблені для миттєвого клітинного живлення без навантаження на травлення.
+          </p>
+        </div>
+        <div class="manifesto-col">
+          <span class="col-num">II.</span>
+          <h3>Ритм сучасного життя</h3>
+          <p>
+            120 секунд на приготування. Повноцінна заміна традиційного сніданку, яка звільняє час для головного та дарує стійку ситість на 3–4 години.
+          </p>
+        </div>
+        <div class="manifesto-col">
+          <span class="col-num">III.</span>
+          <h3>Персональний куратор</h3>
+          <p>
+            Ми не просто відправляємо продукт — персональний наставник коригує раціон, контролює динаміку параметрів тіла та супроводжує до бажаного результату.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================================================
+       MODAL: FORMULA 1 (Quiet Luxury Editorial Specification)
+       ============================================================ -->
+  <div class="luxury-modal-overlay" id="modalShake" role="dialog" aria-modal="true">
+    <div class="luxury-modal-window">
+      <button class="luxury-close-btn" id="closeShakeBtn" aria-label="Закрити">&times;</button>
+      
+      <div class="modal-content-grid">
+        
+        <!-- Left: Pure Visual Studio -->
+        <div class="modal-studio-pane">
+          <div class="studio-header-meta">
+            <span class="studio-code">ART. #0141</span>
+            <span class="studio-badge">FORMULA 1 ORIGINAL</span>
+          </div>
+
+          <div class="studio-canvas" id="studioCanvas">
+            <div class="studio-light-halo"></div>
+            <img 
+              src="images/product-shake.webp" 
+              alt="Herbalife Formula 1 Canister" 
+              class="studio-canister-img"
+              id="studioCanister"
+            />
+            <div class="studio-pedestal"></div>
+          </div>
+
+          <!-- Clinical Micro-Specs -->
+          <div class="clinical-specs">
+            <div class="spec-cell">
+              <span class="cell-number">20 g</span>
+              <span class="cell-label">PROTEIN COMPLEX</span>
+            </div>
+            <div class="spec-sep"></div>
+            <div class="spec-cell">
+              <span class="cell-number">25</span>
+              <span class="cell-label">VITAMINS & MINERALS</span>
+            </div>
+            <div class="spec-sep"></div>
+            <div class="spec-cell">
+              <span class="cell-number">214</span>
+              <span class="cell-label">KCAL / SERVING</span>
+            </div>
+          </div>
+
+          <div class="studio-footer-note">
+            Сертифіковано згідно міжнародних стандартів контролю якості.
+          </div>
+        </div>
+
+        <!-- Right: Curated Specification & Order -->
+        <div class="modal-spec-pane">
+          <div class="spec-header">
+            <span class="spec-kicker">ЗБАЛАНСОВАНИЙ КОКТЕЙЛЬ</span>
+            <h2 class="spec-main-title">Формула 1</h2>
+            <span class="spec-french-subtitle">Formule 1 • Shake Nutritionnel Équilibré</span>
+          </div>
+
+          <div class="spec-editorial-text">
+            Науково вивірена матриця рослинного білка високого ступеня очищення, харчових волокон та антиоксидантного комплексу. Створена для легкого контролю ваги, підтримки м'язового тонусу та чиforegroundної енергії.
+          </div>
+
+          <!-- Flavour Swatches (Monochrome & Minimalist) -->
+          <div class="spec-block">
+            <div class="block-header">
+              <span class="block-title">ОБЕРІТЬ СМАКОВИЙ ПРОФІЛЬ:</span>
+              <span class="flavor-name-display" id="selectedFlavorDisplay">Ванільний крем</span>
+            </div>
+            
+            <div class="flavor-swatches">
+              <button class="swatch-btn active" data-flavor="Ванільний крем" title="Ванільний крем">
+                <span class="swatch-circle vanilla"></span>
+                <span class="swatch-text">Ваніль</span>
+              </button>
+              <button class="swatch-btn" data-flavor="Шоколадний велюр" title="Шоколадний велюр">
+                <span class="swatch-circle choco"></span>
+                <span class="swatch-text">Шоколад</span>
+              </button>
+              <button class="swatch-btn" data-flavor="Свіжа полуниця" title="Свіжа полуниця">
+                <span class="swatch-circle berry"></span>
+                <span class="swatch-text">Полуниця</span>
+              </button>
+              <button class="swatch-btn" data-flavor="Ароматне капучино" title="Ароматне капучино">
+                <span class="swatch-circle coffee"></span>
+                <span class="swatch-text">Капучино</span>
+              </button>
+              <button class="swatch-btn" data-flavor="Печиво з вершками" title="Печиво з вершками">
+                <span class="swatch-circle cookie"></span>
+                <span class="swatch-text">Печиво</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Format Choice (Clean Minimal Cards) -->
+          <div class="spec-block">
+            <div class="block-header">
+              <span class="block-title">ФОРМАТ ПОСТАВКИ:</span>
+            </div>
+
+            <div class="format-options">
+              <label class="format-card active">
+                <input type="radio" name="formatOption" value="test-drive" checked>
+                <div class="format-content">
+                  <div class="format-top">
+                    <span class="format-badge">СТАРТОВИЙ НАБІР</span>
+                    <span class="format-price">3-Денний Тест</span>
+                  </div>
+                  <div class="format-desc">
+                    Сет пробних порцій + концентрат Алое + супровід персонального консультанта.
+                  </div>
+                </div>
+              </label>
+
+              <label class="format-card">
+                <input type="radio" name="formatOption" value="full-jar">
+                <div class="format-content">
+                  <div class="format-top">
+                    <span class="format-badge subtle">ПОВНИЙ КУРС</span>
+                    <span class="format-price">Банка 550 г (21 порція)</span>
+                  </div>
+                  <div class="format-desc">
+                    Базовий місячний курс щоденних збалансованих сніданків.
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Order Actions -->
+          <div class="spec-cta-row">
+            <button class="btn-luxury-action" id="openCheckoutFromShake">
+              Оформити замовлення
+            </button>
+            <button class="btn-luxury-outline" id="openChatConsult">
+              Поставити питання нутриціологу
+            </button>
+          </div>
+
+          <div class="spec-terms-note">
+            Офіційний продукт Herbalife Nutrition • Доставка Новою Поштою по всій Україні • Безпечна оплата
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECONDARY MODAL: ALOE CONCENTRATE
+       ============================================================ -->
+  <div class="luxury-modal-overlay" id="modalAloe" role="dialog" aria-modal="true">
+    <div class="luxury-modal-window mini-luxury">
+      <button class="luxury-close-btn" data-close-generic>&times;</button>
+      <div class="mini-luxury-inner">
+        <span class="spec-kicker">ГІДРАТАЦІЯ ТА ОЧИЩЕННЯ</span>
+        <h2 class="spec-main-title">Рослинний напій Алое</h2>
+        <p class="mini-spec-text">
+          Органічний сік листя алое вера першого холодного віджиму. М'яко готує шлунково-кишковий тракт до прийому поживних речовин, регулює природний водний баланс та очищує організм.
+        </p>
+        <div class="mini-bullets">
+          <div class="mini-bullet-item">🌿 Природний детокс на клітинному рівні</div>
+          <div class="mini-bullet-item">💧 Допомагає пити норму чистої води щодня</div>
+          <div class="mini-bullet-item">🍋 Освіжаючий м'який цитрусовий акорд</div>
+        </div>
+        <button class="btn-luxury-action full" id="orderAloeAction">Додати в програму →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECONDARY MODAL: DIET & PROTOCOL
+       ============================================================ -->
+  <div class="luxury-modal-overlay" id="modalDiet" role="dialog" aria-modal="true">
+    <div class="luxury-modal-window mini-luxury">
+      <button class="luxury-close-btn" data-close-generic>&times;</button>
+      <div class="mini-luxury-inner">
+        <span class="spec-kicker">СИСТЕМА PRO BALANCE</span>
+        <h2 class="spec-main-title">Індивідуальний раціон</h2>
+        <p class="mini-spec-text">
+          Коктейль — це ключова ланка, проте фінальний результат залежить від гармонії всього дня: достатньої кількості овочевої клітковини, здорових жирів та правильного питного режиму.
+        </p>
+        <div class="mini-bullets">
+          <div class="mini-bullet-item">📐 Програма персоналізується під ваш графік і звички</div>
+          <div class="mini-bullet-item">⚖️ Фіксація перших змін у самопочутті за 72 години</div>
+          <div class="mini-bullet-item">📲 Щоденний контакт із персональним наставником</div>
+        </div>
+        <button class="btn-luxury-action full" id="orderDietAction">Замовити розрахунок раціону →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CHECKOUT / CONSULTATION MODAL
+       ============================================================ -->
+  <div class="luxury-modal-overlay" id="modalCheckout" role="dialog" aria-modal="true">
+    <div class="luxury-modal-window checkout-luxury">
+      <button class="luxury-close-btn" id="closeCheckoutBtn">&times;</button>
+      
+      <div id="checkoutFormBlock">
+        <span class="spec-kicker">ПЕРСОНАЛЬНИЙ ЗАПИТ</span>
+        <h2 class="spec-main-title">Оформлення програми</h2>
+        <p class="checkout-product-tag" id="checkoutTargetSummary">
+          Обраний продукт: <strong>Формула 1 (Ваніль) • 3-Денний Тест</strong>
+        </p>
+
+        <form class="luxury-form" id="orderForm">
+          <div class="field-group">
+            <label for="clientName">Ваше ім'я</label>
+            <input type="text" id="clientName" placeholder="Олена" required>
+          </div>
+
+          <div class="field-group">
+            <label for="clientPhone">Телефон або нік у Telegram</label>
+            <input type="text" id="clientPhone" placeholder="+38 (0__) ___-__-__ або @username" required>
+          </div>
+
+          <div class="field-group">
+            <label>Бажаний формат зв'язку:</label>
+            <div class="channel-selector">
+              <label class="channel-card active">
+                <input type="radio" name="commChannel" value="Telegram" checked>
+                <span>Telegram</span>
+              </label>
+              <label class="channel-card">
+                <input type="radio" name="commChannel" value="Viber">
+                <span>Viber</span>
+              </label>
+              <label class="channel-card">
+                <input type="radio" name="commChannel" value="Phone">
+                <span>Телефонний дзвінок</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-luxury-action full">
+            Надіслати запит куратору
+          </button>
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="checkoutSuccessBlock" style="display: none;" class="success-screen">
+        <span class="success-mark">✓</span>
+        <h2 class="spec-main-title">Запит прийнято</h2>
+        <p class="success-text">
+          Ваш персональний куратор простору <strong>Pro Balance</strong> зв'яжеться з вами протягом кількох хвилин для уточнення деталей доставки та підбору раціону.
+        </p>
+        <div class="success-details" id="successDetailsBox"></div>
+        <button class="btn-luxury-outline full" id="btnFinishSuccess">Повернутися до сцени</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer: Editorial Footnote -->
+  <footer class="luxury-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <span class="footer-logo">PRO BALANCE</span>
+        <p>Філософія чистого харчування, біодоступності та підтримки енергії.</p>
+      </div>
+      <div class="footer-col right">
+        <span>Офіційний незалежний партнер Herbalife Nutrition</span>
+        <span class="footer-note">Продукція не є лікарським засобом. Результати індивідуальні.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

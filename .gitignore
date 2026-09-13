@@ -1,0 +1,4 @@
+cloudflared.exe
+bot.py
+__pycache__/
+.git/
