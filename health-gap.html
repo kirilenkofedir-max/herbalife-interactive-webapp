@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Superpower — The Health Gap | Proactive Longevity Matrix</title>
+    
+    <!-- Telegram Web App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="health-gap.css">
+</head>
+<body class="dark-theme">
+    <!-- Ambient Dynamic Light Glow -->
+    <div class="ambient-glow glow-top" id="ambientGlowTop"></div>
+    <div class="ambient-glow glow-bottom" id="ambientGlowBottom"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand-group">
+                <a href="#" class="brand-logo">
+                    <span class="logo-symbol">✦</span>
+                    <span class="logo-text">SUPERPOWER</span>
+                </a>
+                <span class="project-pill">THE HEALTH GAP</span>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#gap-concept" class="nav-link">The Gap</a>
+                <a href="#visualizer" class="nav-link">Lifespan vs Healthspan</a>
+                <a href="#matrix" class="nav-link">150+ Biomarkers</a>
+                <a href="#calculator" class="nav-link">Diagnostic Quiz</a>
+                <a href="#comparison" class="nav-link">Sickcare vs Longevity</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="index.html" class="scene-switch-btn" title="Switch to Herbalife Studio Scene">
+                    <span class="switch-icon">🌿</span>
+                    <span class="switch-text">Pro Balance Scene</span>
+                </a>
+                <button class="cta-header-btn" id="startDiagnosisBtn">
+                    <span>Analyze My Gap</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="sound-toggle-btn" id="soundToggle" title="Toggle audio feedback">
+                    <svg class="sound-icon-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                    <svg class="sound-icon-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- 01: HERO SECTION -->
+        <section class="hero-section" id="gap-concept">
+            <div class="section-container">
+                <div class="hero-badge">
+                    <span class="badge-dot pulse"></span>
+                    <span class="badge-mono">PARADIGM SHIFT // PROTOCOL 01: PROACTIVE LONGEVITY</span>
+                </div>
+
+                <h1 class="hero-title">
+                    We are living longer.<br>
+                    <span class="title-highlight">Yet spending 12.4 years dying slower.</span>
+                </h1>
+
+                <p class="hero-lead">
+                    There is an immense divide between your total lifespan and your healthy, disease-free years. Standard healthcare waits for symptoms to escalate into disease. Superpower decodes 150+ blood biomarkers to close the gap before cellular decline begins.
+                </p>
+
+                <!-- Interactive Paradigm Mode Switcher -->
+                <div class="paradigm-switch-card">
+                    <div class="switch-header">
+                        <span class="switch-label">SELECT DIAGNOSTIC PARADIGM:</span>
+                        <div class="mode-toggles">
+                            <button class="mode-toggle-btn" data-mode="standard">
+                                <span class="mode-icon">⚠️</span>
+                                Standard Sickcare (10 Markers)
+                            </button>
+                            <button class="mode-toggle-btn active" data-mode="superpower">
+                                <span class="mode-icon">⚡</span>
+                                Superpower Longevity (150+ Markers)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="paradigm-viewport" id="paradigmViewport">
+                        <!-- Content dynamically updated via JS -->
+                        <div class="paradigm-status-bar">
+                            <div class="stat-cell">
+                                <span class="stat-caption">DETECTION WINDOW</span>
+                                <span class="stat-val highlight-cyan" id="statWindow">10-15 Years Early</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-caption">ANALYTICAL DEPTH</span>
+                                <span class="stat-val" id="statDepth">150+ Biomarkers Across 8 Systems</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-caption">TARGET THRESHOLDS</span>
+                                <span class="stat-val highlight-green" id="statThresholds">Optimal Peak Longevity</span>
+                            </div>
+                            <div class="stat-cell">
+                                <span class="stat-caption">ESTIMATED HEALTHSPAN</span>
+                                <span class="stat-val" id="statSpan">+14.2 Years Gained</span>
+                            </div>
+                        </div>
+                        <div class="paradigm-matrix-preview" id="paradigmGrid">
+                            <!-- Visual dot grid rendered dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02: THE HEALTH GAP TIMELINE VISUALIZER -->
+        <section class="visualizer-section" id="visualizer">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="sec-label">02 // CHRONOLOGICAL TRAJECTORY</span>
+                    <h2 class="sec-title">The Lifespan vs Healthspan Visualizer</h2>
+                    <p class="sec-desc">
+                        Drag the chronological slider to observe biological degradation under standard reactive medicine versus continuous biomarker optimization.
+                    </p>
+                </div>
+
+                <div class="visualizer-card">
+                    <div class="slider-control-bar">
+                        <div class="slider-info">
+                            <span class="slider-tag">CURRENT AGE INSPECTION:</span>
+                            <span class="slider-age-num" id="currentAgeDisplay">42</span>
+                            <span class="slider-unit">YEARS OLD</span>
+                        </div>
+                        <div class="slider-wrapper">
+                            <input type="range" id="ageSlider" min="20" max="85" value="42" class="range-slider">
+                            <div class="slider-ticks">
+                                <span>20y</span>
+                                <span>35y</span>
+                                <span>50y</span>
+                                <span>65y</span>
+                                <span>80y+</span>
+                            </div>
+                        </div>
+                        <div class="optimization-toggle">
+                            <label class="toggle-container">
+                                <input type="checkbox" id="protocolToggle" checked>
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-text">Apply Longevity Protocol</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dual Comparison Graph Graphic -->
+                    <div class="trajectory-graph">
+                        <div class="trajectory-row">
+                            <div class="traj-label-col">
+                                <span class="traj-name">Standard Healthcare</span>
+                                <span class="traj-sub">Reactive "Wait for Disease"</span>
+                            </div>
+                            <div class="traj-bar-col">
+                                <div class="bar-track">
+                                    <div class="bar-fill healthy-fill" style="width: 62%;">
+                                        <span class="bar-marker">Healthspan: ~61.8 yrs</span>
+                                    </div>
+                                    <div class="bar-fill gap-fill" style="width: 20%;">
+                                        <span class="gap-warning">⚠️ The Health Gap: 16.2 yrs chronic decline</span>
+                                    </div>
+                                </div>
+                                <div class="bar-stats">Total Lifespan: 78.0 yrs</div>
+                            </div>
+                        </div>
+
+                        <div class="trajectory-row highlight-row">
+                            <div class="traj-label-col">
+                                <span class="traj-name highlight-green">Superpower Longevity</span>
+                                <span class="traj-sub">Early Biomarker Interventions</span>
+                            </div>
+                            <div class="traj-bar-col">
+                                <div class="bar-track">
+                                    <div class="bar-fill superpower-fill" id="superpowerFill" style="width: 83%;">
+                                        <span class="bar-marker">Optimized Healthspan: ~82.5 yrs</span>
+                                    </div>
+                                    <div class="bar-fill gap-compressed" id="compressedGap" style="width: 5%;">
+                                        <span class="gap-safe">✓ Morbidity Compressed</span>
+                                    </div>
+                                </div>
+                                <div class="bar-stats highlight-green">Vital Lifespan: 87.5 yrs (+9.5y)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Biological Diagnostics at current age -->
+                    <div class="age-diagnostic-grid" id="ageDiagnosticGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03: THE 150+ BIOMARKER MATRIX -->
+        <section class="matrix-section" id="matrix">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="header-split">
+                        <div>
+                            <span class="sec-label">03 // CLINICAL TAXONOMY</span>
+                            <h2 class="sec-title">The 150+ Biomarker Matrix</h2>
+                            <p class="sec-desc">
+                                While a standard physical orders just 10–12 blunt markers, Superpower conducts a complete deep-spectrum analysis across 8 physiological pillars.
+                            </p>
+                        </div>
+                        <div class="matrix-search-box">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" id="biomarkerSearch" placeholder="Search biomarker (e.g. ApoB, Cortisol, NAD+)...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category Navigation Pills -->
+                <div class="matrix-category-nav" id="categoryNav">
+                    <button class="cat-pill active" data-cat="all">All Biomarkers (150+)</button>
+                    <button class="cat-pill" data-cat="metabolic">Metabolic & Glucose</button>
+                    <button class="cat-pill" data-cat="cardio">Cardiovascular & Lipids</button>
+                    <button class="cat-pill" data-cat="hormones">Hormonal Vitality</button>
+                    <button class="cat-pill" data-cat="cellular">Cellular Longevity & DNA</button>
+                    <button class="cat-pill" data-cat="nutrients">Micronutrients & Minerals</button>
+                    <button class="cat-pill" data-cat="inflammation">Immunity & Gut Health</button>
+                </div>
+
+                <!-- Biomarker Cards Grid -->
+                <div class="biomarker-grid" id="biomarkerGrid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 04: INTERACTIVE HEALTH GAP DIAGNOSTIC QUIZ -->
+        <section class="calculator-section" id="calculator">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="sec-label">04 // SELF-ASSESSMENT PROTOCOL</span>
+                    <h2 class="sec-title">Calculate Your Personal Health Gap</h2>
+                    <p class="sec-desc">
+                        Identify your current symptoms, daily fatigue patterns, and metabolic signals. Our longevity engine maps them to underlying clinical blind spots.
+                    </p>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-steps-header">
+                        <span class="quiz-step-title">CHECK APPLICABLE SYMPTOMS & LIFESTYLE INDICATORS:</span>
+                        <span class="quiz-counter" id="selectedCounter">0 SELECTED</span>
+                    </div>
+
+                    <div class="symptom-checklist" id="symptomChecklist">
+                        <!-- Checklist items populated dynamically -->
+                    </div>
+
+                    <!-- Computed Analysis Box -->
+                    <div class="diagnosis-result-card" id="diagnosisResult">
+                        <div class="result-header">
+                            <div class="result-title-group">
+                                <span class="result-badge">AI CLINICAL TRIAGE REPORT</span>
+                                <h3 class="result-main-title" id="reportTitle">Select indicators above to calculate risk profile</h3>
+                            </div>
+                            <div class="gap-score-gauge">
+                                <div class="gauge-circle">
+                                    <span class="gauge-num" id="gaugeNum">0.0</span>
+                                    <span class="gauge-sub">YRS AT RISK</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-breakdown" id="resultBreakdown" style="display: none;">
+                            <div class="breakdown-column">
+                                <h4 class="col-title">CRITICAL BLIND SPOT BIOMARKERS</h4>
+                                <ul class="biomarker-alert-list" id="alertMarkersList">
+                                    <!-- Dynamic items -->
+                                </ul>
+                            </div>
+                            <div class="breakdown-column">
+                                <h4 class="col-title">RECOMMENDED BIOMARKER INTERVENTION</h4>
+                                <div class="intervention-box" id="interventionBox">
+                                    <!-- Dynamic protocol -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05: SICKCARE VS LONGEVITY COMPARISON TABLE -->
+        <section class="comparison-section" id="comparison">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="sec-label">05 // ARCHITECTURAL COMPARISON</span>
+                    <h2 class="sec-title">Standard Healthcare vs Superpower</h2>
+                    <p class="sec-desc">
+                        A side-by-side comparison of reactive symptom suppression versus proactive cellular optimization.
+                    </p>
+                </div>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="feature-col">CLINICAL VECTOR</th>
+                                <th class="standard-col">STANDARD PHYSICAL</th>
+                                <th class="superpower-col">
+                                    <span class="sup-th-badge">SUPERPOWER LONGEVITY</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="feature-name">Biomarkers Tested</td>
+                                <td class="standard-val">10 to 15 basic metrics (CBC, Basic CMP)</td>
+                                <td class="superpower-val highlight-green">150+ comprehensive biomarkers annually</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Diagnostic Philosophy</td>
+                                <td class="standard-val">Reactive: "Wait until you're sick enough to medicate"</td>
+                                <td class="superpower-val highlight-cyan">Proactive: "Optimize cell function 15 years before disease"</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Reference Ranges</td>
+                                <td class="standard-val">Population averages (including sick/obese demographics)</td>
+                                <td class="superpower-val highlight-green">Optimal biological thresholds for peak performance</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Cardiovascular Assessment</td>
+                                <td class="standard-val">Basic Total Cholesterol & LDL-C (misses 50% of heart attacks)</td>
+                                <td class="superpower-val highlight-cyan">ApoB, Lp(a), hs-CRP, Oxidized LDL, Calcium Scoring</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Metabolic & Insulin Health</td>
+                                <td class="standard-val">Fasting Glucose & HbA1c (late-stage warning only)</td>
+                                <td class="superpower-val highlight-green">Fasting Insulin, HOMA-IR, Leptin, Visceral Adiposity</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Care Team & Time</td>
+                                <td class="standard-val">7-minute rushed appointment once a year</td>
+                                <td class="superpower-val highlight-cyan">Continuous 24/7 AI health intelligence + Longevity Board</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Action Plan Delivered</td>
+                                <td class="standard-val">"Everything looks normal, see you next year"</td>
+                                <td class="superpower-val highlight-green">Precision nutrition protocol, micronutrient balance & retesting</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06: CALL TO ACTION FOOTER -->
+        <section class="cta-section">
+            <div class="section-container cta-box">
+                <div class="cta-content">
+                    <span class="cta-mini">TAKE CONTROL OF YOUR BIOLOGY</span>
+                    <h2 class="cta-title">Close your Health Gap today.</h2>
+                    <p class="cta-text">
+                        Connect with continuous biomarker intelligence. Synchronized for desktop, mobile, and Telegram Direct Mini App.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="cta-primary-btn" id="footerOrderBtn">
+                            <span>Schedule Longevity Panel</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                        <a href="index.html" class="cta-secondary-btn">
+                            <span>Explore Pro Balance Nutrition Scene</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BIOMARKER MODAL DRAWER -->
+    <div class="biomarker-drawer-overlay" id="drawerOverlay">
+        <div class="biomarker-drawer" id="biomarkerDrawer">
+            <button class="drawer-close-btn" id="drawerClose">✕</button>
+            <div class="drawer-header">
+                <span class="drawer-cat" id="drawerCat">METABOLIC & GLUCOSE</span>
+                <h3 class="drawer-name" id="drawerName">Fasting Insulin</h3>
+                <span class="drawer-code" id="drawerCode">INS-001</span>
+            </div>
+            
+            <div class="drawer-body">
+                <div class="drawer-metrics">
+                    <div class="metric-card">
+                        <span class="m-label">STANDARD LAB RANGE</span>
+                        <span class="m-val" id="drawerStdRange">2.6 – 24.9 µIU/mL (Blunt)</span>
+                    </div>
+                    <div class="metric-card highlight-card">
+                        <span class="m-label">SUPERPOWER OPTIMAL TARGET</span>
+                        <span class="m-val highlight-green" id="drawerOptRange">2.0 – 5.5 µIU/mL (Longevity)</span>
+                    </div>
+                </div>
+
+                <div class="drawer-section">
+                    <h4>WHAT STANDARD SICKCARE MISSES</h4>
+                    <p id="drawerMisses">Fasting blood sugar stays normal for 10-15 years while fasting insulin quietly climbs to toxic levels to compensate. Standard doctors don't test insulin until you develop full-blown Type 2 Diabetes.</p>
+                </div>
+
+                <div class="drawer-section">
+                    <h4>CLINICAL LONGEVITY IMPACT</h4>
+                    <p id="drawerImpact">High fasting insulin accelerates arterial plaque buildup, blocks fat burning (lipolysis), drives visceral adiposity, and increases risk of neurodegenerative decline.</p>
+                </div>
+
+                <div class="drawer-section">
+                    <h4>ACTIONABLE TARGETED INTERVENTION</h4>
+                    <div class="intervention-pill-box" id="drawerProtocol">
+                        <span class="proto-tag">High-Protein Clean Breakfast</span>
+                        <span class="proto-tag">Chromium & Berberine</span>
+                        <span class="proto-tag">Resistance Training</span>
+                    </div>
+                </div>
+
+                <button class="drawer-action-btn" id="drawerSelectBtn">
+                    <span>Add to My Priority Diagnostic Panel</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="health-gap.js"></script>
+</body>
+</html>
